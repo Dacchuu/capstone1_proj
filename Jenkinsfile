@@ -18,7 +18,7 @@ pipeline {
         }
 
         stage('Deploy to Test') {
-            when {
+            steps {
                 branch 'master'
             }
             steps {
@@ -27,7 +27,7 @@ pipeline {
         }
 
         stage('Deploy to Prod') {
-            when {
+            steps {
                 branch 'master'
             }
             steps {
