@@ -5,9 +5,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-		   sh 'docker build -t capstone.app .'
-                }
+                sh 'docker build -t capstone-app .'
             }
         }
 
@@ -19,17 +17,11 @@ pipeline {
 
         stage('Deploy to Test') {
             steps {
-                branch 'master'
-            }
-            steps {
                 sh 'ansible-playbook deploy-test.yml'
             }
         }
 
         stage('Deploy to Prod') {
-            steps {
-                branch 'master'
-            }
             steps {
                 sh 'ansible-playbook deploy-prod.yml'
             }
