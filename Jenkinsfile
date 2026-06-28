@@ -5,7 +5,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                echo "Build stage"
+                script {
+		   sh 'docker build -t capstone.app.'
+                }
             }
         }
 
